@@ -1,16 +1,12 @@
 #!/bin/sh
 
-./build-final-odense.sh
-psql -U postgres -c "DROP DATABASE odense;"
-psql -U postgres -c "CREATE DATABASE odense WITH owner postgres TEMPLATE template0"
-psql -c "CREATE EXTENSION IF NOT EXISTS postgis;" odense
-psql -c "CREATE EXTENSION IF NOT EXISTS hstore;" odense
+./build_sql_file.sh
 
-psql -f 0_import_csv_files_odense.sql odense
+psql -U postgres -c "DROP DATABASE socialgpsnetworks;"
+psql -U postgres -c "CREATE DATABASE socialgpsnetworks WITH owner postgres TEMPLATE template0"
+psql -c "CREATE EXTENSION IF NOT EXISTS postgis;" socialgpsnetworks
+psql -c "CREATE EXTENSION IF NOT EXISTS hstore;" socialgpsnetworks
 
-psql -f 1-palmsplus.sql odense
-psql -f 2-palmsplus.sql odense
-psql -f 3-palmsplus.sql odense
-psql -f 4-palmsplus.sql odense
+psql -f social_gps_networks.sql socialgpsnetworks
 
-echo "Holland: import and db buildup finished"
+echo "socialgpsnetworks: import and db buildup finished"
