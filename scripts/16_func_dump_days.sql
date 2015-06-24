@@ -17,7 +17,10 @@ CREATE OR REPLACE FUNCTION dumpDays()
 
       x :=  'COPY day TO ' ||
             q ||
-            '/Users/besn/Projects/SocialGPSNetworks/' ||
+            '/Users/besn/Projects/SocialGPSNetworks/out/' ||
+
+            getBufferSize()::varchar || '-' ||
+            getTimeTreshold()::varchar || '-' ||
             d::varchar || '.csv' ||
             q ||
             ' DELIMITER ' ||
