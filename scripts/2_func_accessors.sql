@@ -38,4 +38,40 @@ CREATE OR REPLACE FUNCTION getTimeTreshold()
 LANGUAGE plpgsql VOLATILE
 COST 100;
 
+CREATE OR REPLACE FUNCTION getBasePath()
+  RETURNS varchar AS
+  $BODY$
+
+  DECLARE
+
+  v varchar;
+
+  BEGIN
+
+    SELECT base_path FROM config LIMIT 1 INTO v;
+
+    RETURN v;
+
+  END;$BODY$
+LANGUAGE plpgsql VOLATILE
+COST 100;
+
+CREATE OR REPLACE FUNCTION getSourceFile()
+  RETURNS varchar AS
+  $BODY$
+
+  DECLARE
+
+  v varchar;
+
+  BEGIN
+
+    SELECT source_file FROM config LIMIT 1 INTO v;
+
+    RETURN v;
+
+  END;$BODY$
+LANGUAGE plpgsql VOLATILE
+COST 100;
+
 

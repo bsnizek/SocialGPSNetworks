@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 
-rm social_gps_networks.sql
+rm one.sql
+rm two.sql
 
-cat 1_import_palms_file.sql                                 >> social_gps_networks.sql
-cat 2_table_config.sql                                      >> social_gps_networks.sql
+
+cat 1_table_config.sql              >> ../one.sql
+cat 2_func_accessors.sql            >> ../one.sql
+cat 3_table_palms_output.sql        >> ../one.sql
+
+
+cat 1_table_config.sql                                      >> social_gps_networks.sql
 cat 3_view_palms_output_geom.sql                            >> social_gps_networks.sql
 cat 4_func_get_buffer_size.sql                              >> social_gps_networks.sql
 cat 5_table_vicinity.sql                                    >> social_gps_networks.sql

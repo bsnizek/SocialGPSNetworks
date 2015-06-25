@@ -25,8 +25,4 @@ WITH (
   OIDS=FALSE
 );
 
-COPY palms_output
-FROM '/Users/besn/Projects/SocialGPSNetworks/scripts/palms_output_social_network_kild2012_test.csv'
-WITH (FORMAT csv,
-      DELIMITER ',',
-      HEADER);
+
